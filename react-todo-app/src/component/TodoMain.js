@@ -1,12 +1,27 @@
 import React from 'react'
 import TodoItem from './TodoItem'
 
-const TodoMain = () => {
+import './SCSS/TodoMain.scss';
+
+const TodoMain = ({ todoList }) => {
+
+  // const todoItems = todoList.map(todo => <TodoItem />);
+
+  // const renderTodoItem = () => {
+  //   const todoItems = [];
+
+  //   for (const todo of todoList) {
+  //     todoItems.push(<TodoItem />);
+  //   }
+
+  //   return todoItems;
+  // };
+
   return (
     <ul className='todo-list'>
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
+      {
+        todoList.map(todo => <TodoItem item={todo} />)
+      }
     </ul>
   )
 }
