@@ -3,7 +3,7 @@ import TodoItem from './TodoItem'
 
 import './SCSS/TodoMain.scss';
 
-const TodoMain = ({ todoList }) => {
+const TodoMain = ({ todoList, remove }) => {
 
   // const todoItems = todoList.map(todo => <TodoItem />);
 
@@ -15,13 +15,27 @@ const TodoMain = ({ todoList }) => {
   //   }
 
   //   return todoItems;
+
+  const submitHandler = e => {
+
+    const $input = document.querySelector('.insert-from input');
+    console.log($input.value);
+
+    $input.value = '';
+
+  }
+
   // };
 
   return (
     <ul className='todo-list'>
-      {
-        todoList.map(todo => <TodoItem item={todo} />)
-      }
+        {
+            todoList.map(todo => <TodoItem
+                                  key={todo.id}
+                                  item={todo}
+                                  remove={remove} 
+                                  />)
+        }
     </ul>
   )
 }
